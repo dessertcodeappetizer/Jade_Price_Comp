@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>JADE Details</title>
+      <style>
+         body {
+            background-image: url(../static/img8.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0; /* Reset default margin for body */
+         }
+
+         .Section_top {
+            /* Add any styles for Section_top here */
+         }
+
+         .content {
+            text-align: center;
+            /* Add any styles for content here */
+         }
+      </style>
+   </head>
+   <body>
+      <div class="Section_top">
+         <div class="content">
+            <h1 style="color:#FFFFFF">JADE</h1>
+            <h1 style="font-size:60px; color:#FFFFFF;">Welcome!!</h1>
+            {% if data.status == 200 %}
+               <h1><b style="color:#FFFFFF">MakeMyTrip: </b><span style="color:#FFA500;">{{ data.MakeMyTrip }}</span></h1>
+               <h6>
+                  <b style="color:#FFFFFF; font-size:0.2px;">Link: </b>
+                  <a href="{{ data.url1 }}" target="_blank" style="color:#FFFFFF; text-decoration: underline;">Click Here (MMT)</a>
+               </h6>
+               <h1><b style="color:#FFFFFF">GoIbibo: </b><span style="color:#FFA500;">{{ data.GoIbibo }}</span></h1>
+               <h6>
+                  <b style="color:#FFFFFF; font-size:0.2px;">Link: </b>
+                  <a href="{{ data.url2 }}" target="_blank" style="color:#FFFFFF; text-decoration: underline;">Click Here (GoIb)</a>
+               </h6>
+            {% elif data.status == 404 %}
+               <h1 style="font-size:20px;"><b>Something Went Wrong!!!</b></h1>
+            {% endif %}
+            <a href="http://127.0.0.1:5000/"><h1 style="font-size:16px; color:#FFFFFF;">Home</h1></a>
+         </div>
+      </div>
+   </body>
+</html>
